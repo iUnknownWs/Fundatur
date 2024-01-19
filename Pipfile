@@ -10,6 +10,7 @@ django-filter = "*"
 django-cors-headers = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
+whitenoise = "*"
 
 [dev-packages]
 
