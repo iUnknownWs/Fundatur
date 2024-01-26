@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1rzgy=ho(6g#z2m4*ez7q^4lm53e%vt51xk$qc&cbefhv9=d!r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.pythonanywhere.com']
+ALLOWED_HOSTS = ['.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -137,8 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
     "http://127.0.0.1:4321",
-    "https://fundatur.netlify.app/",
-
 ]
 
 REST_FRAMEWORK = {

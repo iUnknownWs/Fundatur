@@ -27,7 +27,17 @@ class BlogPost (models.Model):
     content = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     publishDate = models.DateTimeField(default=now)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    Image = models.ForeignKey(Image, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
+
+class MapMarker (models.Model):
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    publishDate = models.DateTimeField(default=now)
+    eventDate = models.DateField()
+    lat = models.FloatField()
+    long = models.FloatField()
+    category = models.CharField(max_length=50)

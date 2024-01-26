@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import BlogPost, Author, Image
+from .models import BlogPost, Author, Image, MapMarker
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -24,4 +24,13 @@ class BlogPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BlogPost
+        fields = '__all__'
+
+class MapMarkerSerializer(serializers.ModelSerializer):
+    author_details = AuthorSerializer(source='author', read_only=True)
+    author = serializers.PrimaryKeyRelatedField(
+        queryset=Author.objects.all(), write_only=True)
+
+    class Meta:
+        model = MapMarker
         fields = '__all__'

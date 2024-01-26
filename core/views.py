@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
-from .serializer import BlogPostSerializer, AuthorSerializer, ImageSerializer
-from .models import BlogPost, Author, Image
+from .serializer import BlogPostSerializer, AuthorSerializer, ImageSerializer, MapMarkerSerializer
+from .models import BlogPost, Author, Image, MapMarker
 # Create your views here.
 
 
@@ -19,3 +19,7 @@ class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     permission_classes = [permissions.AllowAny]
+
+class MapMarkerViewSet(viewsets.ModelViewSet):
+    queryset = MapMarker.objects.all()
+    serializer_class = MapMarkerSerializer
