@@ -1,6 +1,10 @@
 from rest_framework import serializers
-from .models import BlogPost, Author, Image, MapMarker
+from .models import BlogPost, Author, Image, MapMarker, Newsletter
 
+class NewsletterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Newsletter
+        fields = '__all__'
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:

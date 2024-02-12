@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
-from .serializer import BlogPostSerializer, AuthorSerializer, ImageSerializer, MapMarkerSerializer
-from .models import BlogPost, Author, Image, MapMarker
+from .serializer import BlogPostSerializer, AuthorSerializer, ImageSerializer, MapMarkerSerializer, NewsletterSerializer
+from .models import BlogPost, Author, Image, MapMarker, Newsletter
 # Create your views here.
 
+class NewsletterViewSet(viewsets.ModelViewSet):
+    queryset = Newsletter.objects.all()
+    serializer_class = NewsletterSerializer
 
 class BlogPostViewSet(viewsets.ModelViewSet):
     queryset = BlogPost.objects.all()

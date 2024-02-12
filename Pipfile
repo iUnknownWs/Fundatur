@@ -11,6 +11,7 @@ django-cors-headers = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
 whitenoise = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

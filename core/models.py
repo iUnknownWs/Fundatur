@@ -20,6 +20,8 @@ class Author (models.Model):
     def __str__(self):
         return self.name
 
+class Newsletter (models.Model):
+    email = models.EmailField()
 
 class BlogPost (models.Model):
     title = models.CharField(max_length=100)
@@ -27,7 +29,7 @@ class BlogPost (models.Model):
     content = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     publishDate = models.DateTimeField(default=now)
-    Image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
