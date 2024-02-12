@@ -11,16 +11,24 @@ env_path = Path('.') / '.env'
 load_dotenv(env_path)
 
 response = requests.get('https://iunknownws.pythonanywhere.com/blogpost/')
+response2 = requests.get('https://iunknownws.pythonanywhere.com/newsletter/')
 
 if response.status_code == 200:
     data = response.json()
 else:
     print("Error:", response.status_code)
 
+if response2.status_code == 200:
+    newsletter = response2.json()
+else:
+    print("Error:", response2.status_code)
+
 count = 0
 countimg = 0
 sender_email = 'noticiasfundatur@gmail.com'
-receiver_email = ['willders.carvajal@gmail.com', 'giuliogaro2@gmail.com']
+receiver_email = [] 
+for user in newsletter:
+  receiver_email.append(user['email'])
 subject = "Newsletter Fundatur Eventos"
 body = """
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
